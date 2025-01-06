@@ -20,6 +20,7 @@ namespace DemoWASM.Pages.Exercice1
             Questions.Add("Question 1");
             Questions.Add("Question 2");
             Questions.Add("Question 3");
+            Questions.Add("Question 4");
         }
 
         public void Repondre(string rep)

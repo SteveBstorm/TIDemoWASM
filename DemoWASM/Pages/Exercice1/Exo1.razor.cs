@@ -1,7 +1,10 @@
-﻿namespace DemoWASM.Pages.Exercice1
+﻿using Microsoft.AspNetCore.Components;
+
+namespace DemoWASM.Pages.Exercice1
 {
     public partial class Exo1
     {
+
         public string Username { get; set; }
 
         private List<string> Reponses { get; set; } = new List<string>();
