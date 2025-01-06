@@ -1,0 +1,26 @@
+﻿@page "/exo1"
+<h3>Exo1</h3>
+@if (!GameIsOver)
+{
+    @if (string.IsNullOrEmpty(Username))
+    {
+        <p>Entrez votre pseudo : <input type="text" @bind-value="Username" /></p>
+    }
+    else
+    {
+        <Quizz NotifyResponse="EnregistrerReponse" 
+               Pseudo="@Username"
+               NotifyEndGame="ChangeGameStatus"
+            />
+    }
+}
+else
+{
+    <ul>
+        @foreach(string s in Reponses)
+        {
+            <li>@s</li>
+        }
+    </ul>
+    <p>Merci d'avoir participer</p>
+}

@@ -1,0 +1,8 @@
+﻿<h3>Quizz</h3>
+
+<h4>Bonjour @Pseudo, voici la question @(Compteur + 1)</h4>
+<p>@Questions[Compteur]</p>
+<p>
+    <button @onclick="@(() => Repondre("oui"))">Oui</button>
+    <button @onclick="@(() => Repondre("non"))">Non</button>
+</p>
