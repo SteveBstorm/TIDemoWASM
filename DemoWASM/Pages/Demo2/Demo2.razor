@@ -1,0 +1,10 @@
+﻿@page "/demo2"
+<h3>Demo2</h3>
+<p>Value : @Value</p>
+<p>Value 2 : @Value2</p>
+
+<button @onclick="Increment">+++</button>
+
+<hr />
+<Children ValueFromParent="@Value" NotifyParent="ReceiveValue" />
+

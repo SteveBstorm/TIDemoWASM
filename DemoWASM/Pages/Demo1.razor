@@ -1,0 +1,28 @@
+﻿@page "/demo1"
+<h3>Demo1</h3>
+@*
+    Bloc de commentaire
+*@
+<p class="red">@value</p>
+@* Binding One Way *@
+
+<input type="number" @bind-value="value" />
+@* Binding Two Ways *@
+
+<p>
+    <button @onclick="@Increment" disabled="@(value > 50)">+</button>
+    <button @onclick="() => Add(5)">Add</button>
+    <button @onclick="@(() => Change("hello"))">Change</button>
+</p>
+@* Event Binding *@
+<p class="@(value < 50 ? "red" : "green")">Texte : @Text</p>
+@* Attribute Binding *@
+
+@if(value == 42)
+{
+    <p>La réponse à tout !!!</p>
+}
+else
+{
+    <p>Va mourir inculte !!!</p>
+}
