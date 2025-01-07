@@ -9,19 +9,15 @@ namespace DemoWASM.Pages.Demo4
     {
         [Inject]
         public IJSRuntime JS { get; set; }
-
-        [Inject]
-        public HttpClient Client { get; set; }
+        public IJSObjectReference JSObject { get; set; }
 
         public string ValueFromStorage { get; set; }
 
         protected async override Task OnInitializedAsync()
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://pokeapi.co/api/v2/pokemon");
-            var json = await client.GetFromJsonAsync<object>("");
-            await Console.Out.WriteLineAsync( json.ToString());
-
+            string s = "General Kenobi";
+            JSObject = await JS.InvokeAsync<IJSObjectReference>("import", "./scripts/monscript.js");
+            await JSObject.InvokeVoidAsync("MaSuperFonction", s);
             await JS.InvokeVoidAsync("localStorage.setItem", "valeur", "coucou");
         }
 

@@ -1,0 +1,37 @@
+﻿@page "/demo5"
+<h3>Demo5</h3>
+
+<EditForm Model="MyForm"
+          OnValidSubmit="SubmitForm">
+          <DataAnnotationsValidator />
+    <div>
+        <label>Titre</label>
+        <InputText @bind-Value="MyForm.Title" class="form-control" />
+        <ValidationMessage For="() => MyForm.Title" />
+    </div>
+    <div>
+        <label>Année de sortie</label>
+        <InputNumber @bind-Value="MyForm.ReleaseYear" class="form-control" />
+        <ValidationMessage For="() => MyForm.ReleaseYear" />
+
+    </div>
+    <div>
+        <label>Genre</label>
+        <InputRadioGroup @bind-Value="MyForm.Genre">
+            @foreach(string s in Genres)
+            {
+                <span>@s <InputRadio Value="@s"></InputRadio> &nbsp; &nbsp; </span>
+            }
+        </InputRadioGroup>
+
+        @* <InputSelect @bind-Value="MyForm.Genre" class="form-control">
+            @foreach(string g in Genres)
+            {
+                <option value="@g">@g</option>
+            }
+        </InputSelect> *@
+    </div>
+    <ValidationSummary />
+
+    <button class="btn btn-success" type="submit">Valider</button>
+</EditForm>
