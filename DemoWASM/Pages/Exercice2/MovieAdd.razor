@@ -1,0 +1,42 @@
+﻿<div class="card">
+    <div class="card-header">
+        <h4>Ajouter un film</h4>
+    </div>
+    <div class="card-body">
+        <EditForm Model="MovieForm" OnValidSubmit="FormSubmit">
+            <DataAnnotationsValidator />
+            <div class="form-floating mb-3">
+                <InputText id="t" @bind-Value="MovieForm.Titre" class="form-control" />
+                <label for="t">Titre</label>
+                <ValidationMessage For="() => MovieForm.Titre" />
+            </div>
+            <div class="form-floating mb-3">
+                <InputNumber id="a" @bind-Value="MovieForm.AnneeSortie" class="form-control" />
+                <label for="a">Année</label>
+                <ValidationMessage For="() => MovieForm.AnneeSortie" />
+            </div>
+            <div class="form-floating mb-3">
+                <InputText id="r" @bind-Value="MovieForm.Realisateur" class="form-control" />
+                <label for="r" >Réalisateur</label>
+                <ValidationMessage For="() => MovieForm.Realisateur" />
+            </div>
+            <div class="form-floating mb-3">
+                <InputSelect id="g" @bind-Value="MovieForm.Genre" class="form-control">
+                    @foreach(string c in Categories)
+                    {
+                        <option value="@c">@c</option>
+                    }
+                </InputSelect>
+                <label for="g" >Genre</label>
+                <ValidationMessage For="() => MovieForm.Genre" />
+            </div>
+            <div class="form-floating mb-3">
+                <InputTextArea id="s" @bind-Value="MovieForm.Synopsis" class="form-control" />
+                <label for="s" >Synopsis</label>
+                <ValidationMessage For="() => MovieForm.Synopsis" />
+            </div>
+
+            <button class="btn btn-outline-success" type="submit">Valider</button>
+        </EditForm>
+    </div>
+</div>

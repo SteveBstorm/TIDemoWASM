@@ -1,0 +1,53 @@
+﻿@page "/movielist"
+@using DemoWASM.Pages.Exercice2.Models
+
+<div class="content">
+    <div class="gauche">
+        <h3>MovieList</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Movie m in Movies)
+                {
+                    <tr>
+                        <td>@m.Titre</td>
+                        <td>
+                            <span class="btn-group">
+                                <button class="btn btn-outline-info btn-sm"
+                                        @onclick="() => SelectMovie(m.Id)">
+                                    Détails
+                                </button>
+                                <button class="btn btn-outline-danger btn-sm"
+                                        @onclick="() => Remove(m.Id)">
+                                    Supprimer
+                                </button>
+                                <button class="btn btn-outline-warning btn-sm"
+                                        @onclick="() => Remove(m.Id)">
+                                    Update
+                                </button>
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="droite">
+        <div>
+            <MovieAdd NotifyNewMovie="Add" />
+        </div>
+        @if (SelectedMovie != null)
+        {
+
+            <div>
+                <MovieDetail CurrentMovie="SelectedMovie" />
+            </div>
+        }
+    </div>
+</div>
+

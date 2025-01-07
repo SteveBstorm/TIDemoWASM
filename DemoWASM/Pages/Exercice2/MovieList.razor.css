@@ -1,0 +1,16 @@
+﻿.content {
+    display : flex;
+    flex-direction : row;
+}
+
+.gauche {
+    padding : 10px;
+    min-width : 45%;
+}
+
+.droite {
+    display : flex;
+    flex-direction: column;
+    min-width : 45%;
+    gap: 15px;
+}
