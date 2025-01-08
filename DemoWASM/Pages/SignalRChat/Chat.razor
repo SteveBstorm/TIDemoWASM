@@ -1,0 +1,22 @@
+﻿@page "/chat"
+@using System.Security.Claims
+<h3>Chat</h3>
+<AuthorizeView>
+    <Authorized>
+        
+<p>Message : <input type="text" @bind-value="Message" /></p>
+
+    </Authorized>
+</AuthorizeView>
+<button @onclick="SendMessage">Envoi</button>
+<button @onclick="@(() => JoinGroup("groupe1"))">Join 1</button>
+<button @onclick="@(() => JoinGroup("groupe2"))">Join 2</button>
+<button @onclick="@(() => SendToGroup("groupe1"))">Envoi Groupe 1</button>
+<button @onclick="@(() => SendToGroup("groupe2"))">Envoi Groupe 2</button>
+<hr />
+<ul>
+    @foreach(Message m in MessageList){
+    <li><strong>@m.Author</strong> : @m.Content</li>
+
+    }
+</ul>

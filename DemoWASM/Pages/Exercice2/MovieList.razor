@@ -19,17 +19,15 @@
                         <td>
                             <span class="btn-group">
                                 <button class="btn btn-outline-info btn-sm"
-                                        @onclick="() => SelectMovie(m.Id)">
+                                        @onclick="() => SelectId(m.Id)">
+                                    @* @onclick="() => SelectMovie(m.Id)"> *@
                                     Détails
                                 </button>
                                 <button class="btn btn-outline-danger btn-sm"
                                         @onclick="() => Remove(m.Id)">
                                     Supprimer
                                 </button>
-                                <button class="btn btn-outline-warning btn-sm"
-                                        @onclick="() => Remove(m.Id)">
-                                    Update
-                                </button>
+                                
                             </span>
                         </td>
                     </tr>
@@ -41,11 +39,12 @@
         <div>
             <MovieAdd NotifyNewMovie="Add" />
         </div>
-        @if (SelectedMovie != null)
+        @if (SelectedId > 0)
         {
 
             <div>
-                <MovieDetail CurrentMovie="SelectedMovie" />
+                <MovieDetail CurrentId="SelectedId" />
+                @* <MovieDetail CurrentMovie="SelectedMovie" /> *@
             </div>
         }
     </div>
